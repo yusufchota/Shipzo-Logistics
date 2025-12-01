@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: "dist/spa",
   },
-  base: "/hero",
+  base: "/Shipzo-Logistics/",
   plugins: [react(), expressPlugin()],
   resolve: {
     alias: {

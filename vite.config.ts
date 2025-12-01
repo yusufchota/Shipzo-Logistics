@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: "dist/spa",
   },
-  base: "/Shipzo-Logistics/",
+   base: mode === "production" ? "/Shipzo-Logistics/" : "/",
   plugins: [react(), expressPlugin()],
   resolve: {
     alias: {
@@ -38,3 +38,60 @@ function expressPlugin(): Plugin {
     },
   };
 }
+
+// import { defineConfig } from "vite";
+// import react from "@vitejs/plugin-react-swc";
+// import path from "path";
+
+// // https://vitejs.dev/config/
+// export default defineConfig({
+//   server: {
+//     host: "::",
+//     port: 8080,
+//     fs: {
+//       allow: [".", "./client", "./shared"],
+//       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
+//     },
+//   },
+//   build: {
+//     outDir: "dist/spa",
+//   },
+
+//   // MUST match GitHub repo name exactly
+//   base: "/Shipzo-Logistics/",
+
+//   plugins: [react()],
+
+//   resolve: {
+//     alias: {
+//       "@": path.resolve(__dirname, "./client"),
+//       "@shared": path.resolve(__dirname, "./shared"),
+//     },
+//   },
+// });
+
+// export default defineConfig(({ mode }) => ({
+//   server: {
+//     host: "::",
+//     port: 8080,
+//     fs: {
+//       allow: [".", "./client", "./shared"],
+//       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
+//     },
+//   },
+
+//   build: {
+//     outDir: "dist/spa",
+//   },
+
+//   base: mode === "production" ? "/Shipzo-Logistics/" : "/",
+
+//   plugins: [react()],
+
+//   resolve: {
+//     alias: {
+//       "@": path.resolve(__dirname, "./client"),
+//       "@shared": path.resolve(__dirname, "./shared"),
+//     },
+//   },
+// }));
